@@ -22,7 +22,7 @@ class _CalculadoraScreenState extends State<CalculadoraScreen> {
     final buttonSize = size.width * 0.2;
 
     return Scaffold(
-      backgroundColor: Colors.black, // Fondo negro característico de iOS
+      backgroundColor: Colors.black,  // Fondo negro característico de iOS
       appBar: AppBar(
         title: const Text('Calculadora', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.black,
@@ -38,7 +38,7 @@ class _CalculadoraScreenState extends State<CalculadoraScreen> {
               _resultado,
               style: const TextStyle(
                 fontSize: 72,
-                fontWeight: FontWeight.w300, // Fuente más delgada estilo iOS
+                fontWeight: FontWeight.w300,  // Fuente más delgada estilo iOS
                 color: Colors.white,
               ),
             ),
@@ -79,27 +79,20 @@ class _CalculadoraScreenState extends State<CalculadoraScreen> {
     // aca esta lo de Determinar el color del botón basado en el tipo
     Color buttonColor;
     Color textColor = Colors.white;
-
+    
     if (texto == 'C') {
-      buttonColor = const Color(
-          0xFFA5A5A5); // Gris claro para Clear para que quede como ios
+      buttonColor = const Color(0xFFA5A5A5);  // Gris claro para Clear para que quede como ios
       textColor = Colors.black;
-    } else if (texto == '+' ||
-        texto == '-' ||
-        texto == '×' ||
-        texto == '÷' ||
-        texto == '=') {
-      buttonColor = const Color(
-          0xFFFF9F0A); // Naranja para operadores para que quede como ios
+    } else if (texto == '+' || texto == '-' || texto == '×' || texto == '÷' || texto == '=') {
+      buttonColor = const Color(0xFFFF9F0A);  // Naranja para operadores para que quede como ios
     } else {
-      buttonColor = const Color(
-          0xFF333333); // Gris oscuro para números para que quede como ios
+      buttonColor = const Color(0xFF333333);  // Gris oscuro para números para que quede como ios
     }
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: buttonColor,
-        shape: const CircleBorder(), // Aca esta lo de Botones circulares
+        shape: const CircleBorder(),  // Aca esta lo de Botones circulares
         padding: const EdgeInsets.all(24),
       ),
       onPressed: () => _onButtonPressed(texto),
@@ -134,8 +127,7 @@ class _CalculadoraScreenState extends State<CalculadoraScreen> {
             _resultado = (_primerNumero * segundoNumero).toString();
             break;
           case '÷':
-            _resultado = (_primerNumero / segundoNumero)
-                .toString(); // aca esta lo de la division pero si es el divisor 0 tira que es infinito, eso se puede cuadrad o algo
+            _resultado = (_primerNumero / segundoNumero).toString(); // aca esta lo de la division pero si es el divisor 0 tira que es infinito, eso se puede cuadrad o algo 
             break;
         }
         _operacion = '';
